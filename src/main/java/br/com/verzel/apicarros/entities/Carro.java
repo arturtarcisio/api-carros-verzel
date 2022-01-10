@@ -31,7 +31,7 @@ public class Carro {
     @NotEmpty
     private String modelo;
 
-    @NotEmpty
-    private byte[] foto;
+    //@NotEmpty
+    //private byte[] foto;
 
 }
