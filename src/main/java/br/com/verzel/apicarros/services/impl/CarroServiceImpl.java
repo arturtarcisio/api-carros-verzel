@@ -36,7 +36,7 @@ public class CarroServiceImpl implements CarroService {
 
     @Override
     public List<Carro> listarCarros() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

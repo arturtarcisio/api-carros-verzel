@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/carros")
@@ -25,6 +26,12 @@ public class CarroController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarCarro(@PathVariable Long id){
         service.deletar(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<Carro> listarTodosOsCarros() {
+        return service.listarCarros();
     }
 
 }
