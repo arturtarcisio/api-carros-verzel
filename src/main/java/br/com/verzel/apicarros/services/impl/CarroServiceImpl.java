@@ -25,7 +25,13 @@ public class CarroServiceImpl implements CarroService {
 
     @Override
     public void deletar(Long id) {
-        
+        repository
+                .findById(id)
+                .map( carro -> {
+                    repository.delete(carro);
+                    return Void.TYPE;
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @Override

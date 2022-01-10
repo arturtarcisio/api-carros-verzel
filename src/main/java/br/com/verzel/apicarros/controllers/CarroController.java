@@ -21,4 +21,10 @@ public class CarroController {
         return service.salvar(carro);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarCarro(@PathVariable Long id){
+        service.deletar(id);
+    }
+
 }
