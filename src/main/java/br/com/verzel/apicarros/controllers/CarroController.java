@@ -34,4 +34,10 @@ public class CarroController {
         return service.listarCarros();
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void atualizar(@PathVariable Long id, @RequestBody @Valid Carro carroAtualizado) {
+        service.atualizar(id, carroAtualizado);
+    }
+
 }

@@ -31,7 +31,8 @@ public class CarroServiceImpl implements CarroService {
                     repository.delete(carro);
                     return Void.TYPE;
                 })
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "O recurso que você esta tentando deletar não existe: Carro não encontrado!"));
     }
 
     @Override
@@ -45,7 +46,16 @@ public class CarroServiceImpl implements CarroService {
     }
 
     @Override
-    public Carro update(Long id, Carro carro) {
-        return null;
+    public void atualizar(Long id, Carro carroAtualizado) {
+        repository
+                .findById(id)
+                .map( carro -> {
+                    carro.setNome(carroAtualizado.getNome());
+                    carro.setMarca(carroAtualizado.getMarca());
+                    carro.setModelo(carroAtualizado.getModelo());
+                    return repository.save(carro);
+                })
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "O recurso que você esta tentando atualizar não existe: Carro não encontrado!"));
     }
 }

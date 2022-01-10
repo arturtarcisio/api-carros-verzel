@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface CarroService {
 
-    public Carro salvar(Carro carro);
+    Carro salvar(Carro carro);
 
-    public void deletar(Long id);
+    void deletar(Long id);
 
-    public List<Carro> listarCarros();
+    List<Carro> listarCarros();
 
-    public Page<Carro> listarPorPaginas(Integer pagina, Integer tamanhoPagina);
+    Page<Carro> listarPorPaginas(Integer pagina, Integer tamanhoPagina);
 
-    public Carro update(Long id, Carro carro);
+    void atualizar(Long id, Carro carroAtualizado);
 }
