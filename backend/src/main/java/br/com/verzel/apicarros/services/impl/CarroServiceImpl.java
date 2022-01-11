@@ -36,9 +36,7 @@ public class CarroServiceImpl implements CarroService {
     }
 
     @Override
-    public List<Carro> listarCarros() {
-        return repository.findAll();
-    }
+    public List<Carro> listarCarros() {return repository.listarTodosCarrosPorValorDesc();}
 
     @Override
     public Page<Carro> listarPorPaginas(Integer pagina, Integer tamanhoPagina) {

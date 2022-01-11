@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -31,7 +32,7 @@ public class Carro {
     @NotEmpty
     private String modelo;
 
-    //@NotEmpty
-    //private byte[] foto;
+    @NotNull
+    private Double valor;
 
 }
