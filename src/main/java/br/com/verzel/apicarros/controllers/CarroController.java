@@ -3,9 +3,11 @@ package br.com.verzel.apicarros.controllers;
 import br.com.verzel.apicarros.entities.Carro;
 import br.com.verzel.apicarros.services.CarroService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class CarroController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @RolesAllowed("ADMIN")
     public Carro cadastrarCarro(@RequestBody @Valid Carro carro) {
         return service.salvar(carro);
     }
